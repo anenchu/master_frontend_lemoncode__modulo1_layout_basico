@@ -1,0 +1,43 @@
+@use "src/css/_myVariables.scss" as *;
+
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+}
+
+div[class^="container-"] {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 150px;
+
+    .notification,
+    .box {
+        width: 100px;
+        height: 50px;
+
+        border: 1px solid $primary-border-color;
+        border-radius: 3px;
+        padding: 10px;
+        font-family: $notification-font-family;
+    }
+    
+    .fonts {
+        margin-bottom: 10px;
+
+        &__principal{
+            margin-top: 10px;
+        }    
+    }
+}
+
+.container-1 {
+    @include theme($theme1-background, -10, $theme1-primary-font, $theme1-secondary-font);
+}
+
+.container-2 {
+    @include theme($theme2-background, 10, $theme2-primary-font, $theme2-secondary-font);
+}

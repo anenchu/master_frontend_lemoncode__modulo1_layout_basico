@@ -1,0 +1,40 @@
+$primary-red: red;
+$primary-blue: blue;
+$primary-grey: grey;
+$primary-border-color: $primary-grey;
+$primary-shadow-color: $primary-grey;
+$notification-font-family: 'Brush Script MT', cursive;
+
+$theme1-background: $primary-red;
+$theme1-primary-font: Arial;
+$theme1-secondary-font: 'Times New Roman', serif;
+
+$theme2-background: $primary-blue;
+$theme2-primary-font: 'Courier New';
+$theme2-secondary-font: 'Trebuchet MS';
+
+@mixin theme($background-color, $horizontal-shadow, $primary-font-family, $secondary-font-family){
+    .fonts__principal {
+        font-family: $primary-font-family;
+    }
+
+    .fonts__secondary {
+        font-family: $secondary-font-family;
+    }
+
+    .box {
+        box-shadow: $horizontal-shadow 10px 10px 0 $primary-shadow-color;
+    }
+
+    .notification {
+        &__base {
+            background-color: $background-color;
+        }
+        &__important {
+            background-color: darken($background-color, 30%);
+        }
+        &__warning {
+            background-color: lighten($background-color, 30%);
+        }
+    }
+}
