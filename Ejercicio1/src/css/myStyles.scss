@@ -1,0 +1,46 @@
+@use 'src/css/_myVariables.scss' as *;
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+
+    div[class^="container-"]  {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        color: $primary-color;
+
+        .box {
+            flex: 1 auto 1;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+    }
+
+    .container-1 {
+        @include theme($primary-red);
+    }
+
+    .container-2 {
+        @include theme($primary-blue);
+    }
+
+    .container-3 {
+        @include theme($primary-green);
+    }
+}
+

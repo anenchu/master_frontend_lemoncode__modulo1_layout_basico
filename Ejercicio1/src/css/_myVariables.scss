@@ -1,0 +1,31 @@
+$primary-red: red;
+$primary-blue: blue;
+$primary-green: green;
+$primary-color: white;
+
+@function get-percentage($weight)
+{
+    @return calc($weight * 10);
+}
+
+@mixin theme-by-numbered-class($background-color, $class, $size, $increaseIndex) {
+    @for $i from 1 through $size {
+        .#{$class}-#{$i} {
+            @if $increaseIndex > 0 {
+                background-color: darken($background-color, get-percentage($i));
+            }
+            @if $increaseIndex < 0 {
+                background-color: lighten($background-color, get-percentage($i));
+            }
+        }
+    }
+}
+
+@mixin theme($background-color) {
+    @include theme-by-numbered-class($background-color, 'darken', 4, 1);
+    @include theme-by-numbered-class($background-color, 'lighten', 4, -1);
+    
+    .base-color {
+        background-color: $background-color;
+    }
+}
