@@ -26,11 +26,6 @@ nav{
 }
 
 @media screen and (min-width:400px) {
-    
-    header{
-        min-width: 200px;
-    }
-
     nav{
         display: flex;
         justify-content: space-between;
